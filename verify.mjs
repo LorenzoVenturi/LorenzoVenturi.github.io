@@ -16,7 +16,7 @@ for (const match of html.matchAll(/\b(?:href="#|aria-labelledby="|data-case=")([
   assert(ids.includes(match[1]), `Missing link or dialog target: ${match[1]}`);
 }
 for (const match of html.matchAll(/\b(?:href|src)="\.\/([^"]+)"/g)) {
-  await access(path.join(root, 'dist', match[1]));
+  await access(path.join(root, 'dist', match[1].split(/[?#]/)[0]));
 }
 assert.equal((html.match(/<h1\b/g) || []).length, 1, 'One page heading');
 assert.equal((html.match(/<dialog\b/g) || []).length, data.projects.length, 'Each project has a case study');

@@ -1,4 +1,5 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { themeCSS } from './theme.js';
 
 const content = JSON.parse(await readFile(new URL('./content.json', import.meta.url), 'utf8'));
@@ -68,5 +69,13 @@ const dialogHTML = content.projects.map((p, i) => `<dialog class="case-dialog" i
 
 const template = await readFile(new URL('./template.html', import.meta.url), 'utf8');
 await mkdir(new URL('./dist', import.meta.url), { recursive: true });
-await writeFile(new URL('./dist/index.html', import.meta.url), template.replace('</head>', `<style>${themeCSS}</style></head>`).replace('<!-- PROJECTS -->', projectHTML).replace('<!-- DIALOGS -->', dialogHTML));
+// Changing the wireframe also refreshes its importing script, so a browser
+// cannot keep an older animation after a successful Pages deployment.
+const fingerprint = value => createHash('sha256').update(value).digest('hex').slice(0, 12);
+const observatory = await readFile(new URL('./dist/observatory.js', import.meta.url), 'utf8');
+const appPath = new URL('./dist/app.js', import.meta.url);
+const app = (await readFile(appPath, 'utf8')).replace(/from '\.\/observatory\.js(?:\?v=[a-f0-9]+)?'/, `from './observatory.js?v=${fingerprint(observatory)}'`);
+await writeFile(appPath, app);
+const css = await readFile(new URL('./dist/styles.css', import.meta.url), 'utf8');
+await writeFile(new URL('./dist/index.html', import.meta.url), template.replace('src="./app.js"', `src="./app.js?v=${fingerprint(app)}"`).replace('href="./styles.css"', `href="./styles.css?v=${fingerprint(css)}"`).replace('</head>', `<style>${themeCSS}</style></head>`).replace('<!-- PROJECTS -->', projectHTML).replace('<!-- DIALOGS -->', dialogHTML));
 console.log(`Built ${content.projects.length} evidence-based project studies → dist/index.html`);

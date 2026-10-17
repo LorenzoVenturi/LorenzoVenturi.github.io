@@ -33,9 +33,9 @@ The site uses semantic sections, one main heading, a skip link, native buttons a
 
 No analytics, trackers, runtime framework, package dependencies, external font requests, or image requests. Fonts are served locally under the SIL Open Font License in `dist/assets/OFL.txt`. The procedural canvas caps pixel density and pauses when offscreen or when the tab is hidden.
 
-The cursor uses a critically damped spring for consistent tracking across frame rates. Rotation is bounded to approximately ±24° horizontally and ±17° vertically, with up to 12 px of translation. The wireframe returns smoothly to centre when the cursor leaves.
+The cursor uses a critically damped spring for consistent tracking across frame rates. Rotation is bounded to approximately ±14° horizontally and ±10° vertically around a fixed centre. Continuous depth shading, fewer visible wires, and a fixed violet accent keep the form clear while it turns. The wireframe returns smoothly to its neutral angle when the cursor leaves and stops rendering once it settles.
 
-`npm run check` validates content, local assets, fragment links, dialog references, Electropop text contrast, spring response at several frame rates, and sculpture behavior using a mocked canvas. It does not replace visual browser verification.
+`npm run check` validates content, local assets, fragment links, dialog references, Electropop text contrast, and spring response at several frame rates. The motion regression suite covers real pointer events, coalesced input, stable idle, smooth return, pause, reduced motion, visibility, cleanup, and mobile/desktop geometry bounds using a mocked canvas. It does not replace visual browser verification.
 
 ## Publish updates
 
