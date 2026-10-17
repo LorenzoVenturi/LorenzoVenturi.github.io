@@ -1,17 +1,6 @@
 {
-  "name": "nuxt-app",
-  "type": "module",
+  "name": "lorenzo-venturi-portfolio",
   "private": true,
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "dependencies": {
-    "nuxt": "^4.1.2",
-    "vue": "^3.5.21",
-    "vue-router": "^4.5.1"
-  }
+  "type": "module",
+  "scripts": { "build": "node build.mjs", "check": "node verify.mjs", "dev": "python3 -m http.server 4173 --directory dist --bind 127.0.0.1" }
 }

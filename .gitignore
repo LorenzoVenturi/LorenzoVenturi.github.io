@@ -1,23 +1,9 @@
-# Nuxt dev/build outputs
-.output
-.data
-.nuxt
-.nitro
-.cache
-
-# Node dependencies
-node_modules
-
-# Logs
-logs
-*.log
-
-# Misc
 .DS_Store
-.fleet
-.idea
-
-# Local env files
+node_modules/
+.openai/
+dist/.openai/
 .env
 .env.*
 !.env.example
+*.tar.gz
+*.zip

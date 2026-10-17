@@ -1,0 +1,68 @@
+{
+  "projects": [
+    {
+      "id": "paper-retriever",
+      "title": "Agentic Paper Retriever",
+      "category": "PAPER RETRIEVAL",
+      "type": "LOCAL-FIRST TOOL",
+      "art": "retrieval",
+      "artLabel": "ARXIV PAPER SEARCH",
+      "summary": "I built a local tool for finding arXiv papers with an AI agent, editable search plans, and approval before each search.",
+      "problem": "Literature searches involve refining a question, trying search terms, and tracking relevant papers. This tool keeps the question, search history, and shortlist together while letting the researcher approve each search.",
+      "approach": "I used LangGraph to track the question, approvals, and collected papers. An Ollama model refines the question, reviews titles and abstracts, and decides whether to search again. Researchers can edit the plan. The workflow removes duplicate papers, avoids repeated queries, and caps the number of searches.",
+      "results": "The early version supports question refinement, arXiv search, shortlists, and JSON exports of questions and search history. It includes a browser interface, terminal commands, and tests with mocked responses. Full-paper reading and cited answers are planned features.",
+      "technologies": ["Python", "LangGraph", "Ollama", "arXiv API", "HTML / CSS / JavaScript"],
+      "repository": "https://github.com/LorenzoVenturi/agentic-paper-retrieval",
+      "readme": "https://github.com/LorenzoVenturi/agentic-paper-retrieval#readme",
+      "demo": null
+    },
+    {
+      "id": "fake-news-workflows",
+      "title": "Agent workflows for claim verification",
+      "category": "CLAIM VERIFICATION",
+      "type": "RESEARCH EXPLORATION",
+      "art": "verification",
+      "artLabel": "THREE AGENT WORKFLOWS",
+      "summary": "I compared three ways to check claims with AI agents: a fixed pipeline, an agent that selects its tools, and a debate between agents.",
+      "problem": "Claim checking combines evidence gathering and evaluation. This project examines how different agent architectures organize those steps and which parts of a workflow contribute to the result.",
+      "approach": "I implemented three setups: a fixed LangGraph pipeline with an ablation study, a LangChain agent that chooses which tools to call and how often, and a LangGraph debate between agents with different roles. The repository links the research behind each approach.",
+      "results": "The repository documents all three experimental setups and an ablation study of the fixed pipeline. It provides code for comparing workflow structure, tool selection, and debate in claim verification.",
+      "technologies": ["Python", "LangGraph", "LangChain", "Multi-agent debate"],
+      "repository": "https://github.com/LorenzoVenturi/Fake_News_Agentic_Workflows",
+      "readme": "https://github.com/LorenzoVenturi/Fake_News_Agentic_Workflows#readme",
+      "demo": null
+    },
+    {
+      "id": "overcooked",
+      "title": "Cooperative agents in Overcooked",
+      "category": "MULTI-AGENT SYSTEMS",
+      "type": "REINFORCEMENT LEARNING",
+      "art": "cooperation",
+      "artLabel": "MAPPO / MAA2C",
+      "summary": "I implemented MAPPO and MAA2C from scratch and compared how they coordinate in the Overcooked-AI benchmark.",
+      "problem": "Two agents need to coordinate tasks in a shared kitchen. I studied cooperation within each algorithm, between algorithms, and across different kitchen layouts.",
+      "approach": "Both implementations use centralized training and decentralized execution. I compared performance, generalization, and cooperation between MAPPO and MAA2C across four kitchen layouts.",
+      "results": "The repository includes an experiment notebook, a report, training and rendering tools, pretrained policies, and a gameplay recording. Evaluations cover self-play and cooperation between algorithms, with MAA2C policies trained across multiple layouts.",
+      "technologies": ["Python", "PyTorch", "Overcooked-AI", "MAPPO / MAA2C", "NumPy", "Matplotlib"],
+      "repository": "https://github.com/LorenzoVenturi/Overcooked",
+      "readme": "https://github.com/LorenzoVenturi/Overcooked#readme",
+      "demo": null
+    },
+    {
+      "id": "explainable-language",
+      "title": "Online sexism classification",
+      "category": "LANGUAGE UNDERSTANDING",
+      "type": "LLM CLASSIFICATION",
+      "art": "language",
+      "artLabel": "ZERO-SHOT / FEW-SHOT",
+      "summary": "I studied zero- and few-shot prompting with open-source language models to classify online sexism into five categories.",
+      "problem": "Using the EDOS task as a starting point, the project classifies text as not sexist, threats, derogation, animosity, or prejudiced discussion.",
+      "approach": "I explored zero- and few-shot prompts for open-source language models, varying the task guidance and examples supplied for the five-class classification task.",
+      "results": "The README documents the five-class task, example labels, and the zero- and few-shot study design. It does not report a benchmark score.",
+      "technologies": ["Open-source LLMs", "Zero-shot prompting", "Few-shot prompting", "EDOS"],
+      "repository": "https://github.com/LorenzoVenturi/Explainable_Detection_Online_Sexism",
+      "readme": "https://github.com/LorenzoVenturi/Explainable_Detection_Online_Sexism#readme",
+      "demo": null
+    }
+  ]
+}
