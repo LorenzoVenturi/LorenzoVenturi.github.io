@@ -1,4 +1,4 @@
-import { initObservatory } from './observatory.js?v=e74eec5f6bdd';
+import { initObservatory } from './observatory.js?v=1d641461f064';
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const revealElements = document.querySelectorAll('.reveal');

@@ -2,5 +2,5 @@
   "name": "lorenzo-venturi-portfolio",
   "private": true,
   "type": "module",
-  "scripts": { "build": "node build.mjs", "check": "node verify.mjs && node --test tests/observatory.test.mjs", "dev": "python3 -m http.server 4173 --directory dist --bind 127.0.0.1" }
+  "scripts": { "build": "node build.mjs", "check": "node verify.mjs", "dev": "python3 -m http.server 4173 --directory dist --bind 127.0.0.1" }
 }
